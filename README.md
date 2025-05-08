@@ -27,33 +27,38 @@ This says a Product must have a name (string) and price (number).
 
 Types do the same but are more flexible. I could write the Product as a type:
 
-```ts
+ts
+
 type Product = {
   name: string;
   price: number;
 };
 Both work for typing an object like:
 
-```ts
+ts
+
 let item: Product = { name: "Pen", price: 10 };
 🔍 Key Differences
 ✅ Extending
 Interfaces use the extends keyword:
 
-```ts
+ts
+
 interface DiscountedProduct extends Product {
   discount: number;
 }
 Types use intersections (&):
 
-```ts
+ts
+
 type DiscountedProduct = Product & { discount: number };
 As a beginner, I find extends easier to read.
 
 🔁 Declaration Merging
 Interfaces can be defined multiple times, and TypeScript merges them:
 
-```ts
+ts
+
 interface User {
   name: string;
 }
@@ -66,7 +71,8 @@ Types don’t merge. If I define type User twice, TypeScript throws an error.
 🔄 Flexibility
 Types can handle more than just objects, like unions:
 
-```ts
+ts
+
 type ID = string | number;
 Interfaces can’t do this. They're mainly for object shapes.
 
@@ -101,7 +107,8 @@ TypeScript assigns numbers starting from 0 (Day.Monday is 0, Day.Tuesday is 1, e
 
 Here’s how I used it:
 
-```ts
+ts
+
 function getDayType(day: Day): string {
   if (day === Day.Saturday || day === Day.Sunday) {
     return "Weekend";
@@ -116,7 +123,8 @@ Using Day.Monday is way clearer than 0, and TypeScript catches invalid values li
 🔤 String Enum Example
 For specific values, like directions in a game, string enums are helpful:
 
-```ts
+ts
+
 enum Direction {
   Up = "UP",
   Down = "DOWN",
